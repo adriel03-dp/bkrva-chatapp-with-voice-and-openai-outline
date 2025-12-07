@@ -11,36 +11,36 @@ This project exposes a small Flask backend and static front end that work togeth
 ## Quick Start
 
 1. Create and activate a virtual environment, then install dependencies:
-	```powershell
-	python -m venv .venv
-	.\.venv\Scripts\Activate.ps1
-	pip install -r requirements.txt
-	```
+   ```powershell
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   ```
 2. Export configuration (example for local Docker containers):
-	```powershell
-	$env:OPENAI_API_KEY = "<your key>"
-	$env:STT_URL = "http://localhost:1080/speech-to-text/api/v1/recognize"
-	$env:TTS_URL = "http://localhost:1081/text-to-speech/api/v1/synthesize"
-	```
+   ```powershell
+   $env:OPENAI_API_KEY = "<your key>"
+   $env:STT_URL = "http://localhost:1080/speech-to-text/api/v1/recognize"
+   $env:TTS_URL = "http://localhost:1081/text-to-speech/api/v1/synthesize"
+   ```
 3. Run the Flask app:
-	```powershell
-	python server.py
-	```
+   ```powershell
+   python server.py
+   ```
 4. Open `http://localhost:8000` and interact with the assistant.
 
 ## Environment Variables
 
-| Variable | Purpose | Default |
-| --- | --- | --- |
-| `OPENAI_API_KEY` | Credentials for OpenAI API | `skills-network` (lab placeholder) |
-| `OPENAI_MODEL` | Chat completion model name | `gpt-3.5-turbo` |
-| `STT_URL` | Speech-to-Text endpoint | `http://localhost:1080/speech-to-text/api/v1/recognize` |
-| `TTS_URL` | Text-to-Speech endpoint | `http://localhost:1081/text-to-speech/api/v1/synthesize` |
-| `STT_MODEL` | Optional model query parameter | unset |
-| `TTS_ACCEPT` | Audio mime type expected from TTS | `audio/wav` |
-| `STT_CONTENT_TYPE` | Content type sent to STT | `application/octet-stream` |
-| `STT_AUTH_HEADER` | Authorization header for STT requests | unset |
-| `TTS_AUTH_HEADER` | Authorization header for TTS requests | unset |
+| Variable           | Purpose                               | Default                                                  |
+| ------------------ | ------------------------------------- | -------------------------------------------------------- |
+| `OPENAI_API_KEY`   | Credentials for OpenAI API            | `skills-network` (lab placeholder)                       |
+| `OPENAI_MODEL`     | Chat completion model name            | `gpt-3.5-turbo`                                          |
+| `STT_URL`          | Speech-to-Text endpoint               | `http://localhost:1080/speech-to-text/api/v1/recognize`  |
+| `TTS_URL`          | Text-to-Speech endpoint               | `http://localhost:1081/text-to-speech/api/v1/synthesize` |
+| `STT_MODEL`        | Optional model query parameter        | unset                                                    |
+| `TTS_ACCEPT`       | Audio mime type expected from TTS     | `audio/wav`                                              |
+| `STT_CONTENT_TYPE` | Content type sent to STT              | `application/octet-stream`                               |
+| `STT_AUTH_HEADER`  | Authorization header for STT requests | unset                                                    |
+| `TTS_AUTH_HEADER`  | Authorization header for TTS requests | unset                                                    |
 
 Additional options such as `OPENAI_SYSTEM_PROMPT`, `OPENAI_TEMPERATURE`, `STT_TIMEOUT`, and `TTS_TIMEOUT` are also supported.
 
